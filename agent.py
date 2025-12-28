@@ -16,24 +16,24 @@ class AgentAspirateur:
 
     def nettoyer(self):
         if self.etat[self.position] == SALE:
-            print(f"🧹 Nettoyage de la chambre {self.position}")
+            print(f"Nettoyage de la chambre {self.position}")
             self.etat[self.position] = PROPRE
             
         else:
-            print(f"✅ Chambre {self.position} déjà propre")
+            print(f"Chambre {self.position} déjà propre")
 
         self.temps += 1
     def se_deplacer(self):
         self.position = "B" if self.position == "A" else "A"
-        print(f"➡️ Déplacement vers la chambre {self.position}")
+        print(f"Déplacement vers la chambre {self.position}")
 
     def afficher_etat(self):
-        print(f"⏱ Temps: {self.temps} min | Position: {self.position} | "
+        print(f"Temps: {self.temps} min | Position: {self.position} | "
               f"A: {self.etat['A']} | B: {self.etat['B']}")
         print("-" * 50)
 
     def executer(self):
-        print("🚀 Démarrage de la simulation\n")
+        print("Démarrage de la simulation\n")
         self.afficher_etat()
 
         while self.temps < self.temps_max:
@@ -42,8 +42,8 @@ class AgentAspirateur:
             self.se_deplacer()
             self.afficher_etat()
 
-        print("🛑 Simulation terminée (2 minutes écoulées)")
-        print(f"📌 État final : A={self.etat['A']} | B={self.etat['B']}")
+        print("Simulation terminée (2 minutes écoulées)")
+        print(f"État final : A={self.etat['A']} | B={self.etat['B']}")
 
 ## Cas 1 : Les deux chambres sont sales
 agent = AgentAspirateur(SALE, SALE)
