@@ -1,0 +1,34 @@
+DEBUT
+
+// Initialisation
+position ← A
+temps ← 0
+temps_max ← 2   // en minutes
+
+// États des chambres
+etat_A ← SALE ou PROPRE
+etat_B ← SALE ou PROPRE
+
+TANT QUE temps < temps_max FAIRE
+
+    SI position = A ALORS
+        SI etat_A = SALE ALORS
+            nettoyer A
+            etat_A ← PROPRE
+        FIN SI
+        temps ← temps + 1
+        se_deplacer_vers B
+        position ← B
+    SINON SI position = B ALORS
+        SI etat_B = SALE ALORS
+            nettoyer B
+            etat_B ← PROPRE
+        FIN SI
+        temps ← temps + 1
+        se_deplacer_vers A
+        position ← A
+    FIN SI
+
+FIN TANT QUE
+
+FIN
